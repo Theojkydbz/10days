@@ -1,0 +1,19 @@
+<template>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>DesignFeedback</strong> by <a target="_blank" href="https://theogeiller.com">Théo Geiller</a>. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
