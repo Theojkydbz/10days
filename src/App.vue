@@ -22,15 +22,21 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: Poppins;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #023047;
-  margin-top: 60px;
+  margin-top: 0;
+  background-color: #FAFAFA;
 }
 .page-wrapper {
   min-height: 60vh;
+}
+a{
+  text-decoration:none; 
+  color: inherit;
 }
 </style>

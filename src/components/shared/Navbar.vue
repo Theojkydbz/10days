@@ -1,7 +1,9 @@
 <template>
     <router-link :to="'/'" >
-        <img class="logohead" alt="Design Feedback logo" src="@/assets/logo.svg">
-        <h1>DesignFeedback</h1>
+        <div class="head">
+            <img class="logohead" alt="Design Feedback logo" src="@/assets/logo.svg">
+            <h1>DesignFeedback</h1>
+        </div>
     </router-link>
 </template>
 
@@ -11,6 +13,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
+.head{
+    display: flex;
+    flex-direction: row;
+    
+    .logohead{
+        width: 20vh;
+    }
+}
 </style>

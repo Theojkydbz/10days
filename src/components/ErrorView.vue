@@ -1,10 +1,11 @@
 <template>
   <div class="notFoundContainer">
     <div class="m-b-xxl">
-      <h1 class="title">{{title}}</h1>
-      <router-link :to="{name: navigateToPage}" class="button is-primary">{{navigateToText}}</router-link>
+      <h2 class="title">{{title}}</h2>
     </div>
-    <h2 class="subtitle">{{status}}<span> :(</span></h2>
+    <h2 class="subtitle">{{status}}<span> 😣</span></h2>
+        <router-link :to="{name: navigateToPage}" class="button is-primary">{{navigateToText}}</router-link>
+
   </div>
 </template>
 
@@ -36,7 +37,6 @@
     font-size: 40px;
   }
   .subtitle {
-    font-size: 140px;
     text-align: center;
   }
   .notFoundContainer {
