@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
+    <div>
+      <p class="centered">
         <strong>DesignFeedback</strong> by <a target="_blank" href="https://theogeiller.com">Théo Geiller</a>. All rights reserved.
       </p>
     </div>
