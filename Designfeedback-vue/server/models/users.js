@@ -22,7 +22,8 @@ const userSchema = new Schema({
         maxlength: [32, 'Too long, max is 32 characters'],
         required: 'Password is required'
         },
-    createdAt: { type: Date, default: Date.now }
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
 });
 
 userSchema.pre("save", function(next){
