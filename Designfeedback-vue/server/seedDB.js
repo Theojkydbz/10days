@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const User = require('./models/users.js');
+const User = require('./models/users');
 
 const data = require('./data.js');
-const config = require('./config/dev.js');
+const config = require('./config/dev');
 
 class DB {
   constructor() {
