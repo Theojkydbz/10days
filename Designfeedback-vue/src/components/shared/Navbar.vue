@@ -1,13 +1,15 @@
 <template>
-    <router-link :to="'/'" >
         <div class="head">
-            <img class="logohead" alt="Design Feedback logo" src="@/assets/logo.svg">
-            <div>
-                <h1>DesignFeedback</h1>
-                <h5>improve your skills by peerlearning</h5>
+            <router-link :to="'/'" >
+            <div class="logo-label">
+                <img class="logohead" alt="Design Feedback logo" src="@/assets/logo.svg">
+            </div>
+            </router-link>
+            <div class="login">
+                <p>already have an account?</p>
+                <router-link to="/login">Login</router-link>
             </div>
         </div>
-    </router-link>
 </template>
 
 <script>
@@ -21,9 +23,22 @@ export default {
 .head{
     display: flex;
     flex-direction: row;
-    
-    .logohead{
-        width: 10%;
+    justify-content:space-between;
+    align-items: center;
+    height: 13vh;
+
+    margin-inline: 10vw;
+    padding-top: 5vw;
+    padding-bottom: 2vw;
+    .login{
+        display: flex;
+        flex-direction: row;
+        p{
+            display: inline
+        }
+        a{
+            margin-left:20px;
+        }
     }
 }
 </style>

@@ -23,18 +23,37 @@ export default {
 
 <style>
 
-#app {
+html {
   font-family: Poppins;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #023047;
   margin-top: 0;
   background-color: #FAFAFA;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
 }
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+section{
+  margin-top: 5vh;
+}
+
 .page-wrapper {
-  min-height: 60vh;
+  min-height: 70vh;
+  margin-inline: 10vw;
+  margin-top: 7vw;
 }
+
 a{
   text-decoration:none; 
   color: inherit;

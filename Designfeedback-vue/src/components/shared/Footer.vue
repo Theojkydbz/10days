@@ -15,5 +15,7 @@ export default {
 </script>
 
 <style>
-
+.footer{
+  margin-bottom: 5%;
+}
 </style>
