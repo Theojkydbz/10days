@@ -3,7 +3,20 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const config = require('./config/dev');
 
+const session = require('express-session');
+const passport = require('passport');
+const MongoDBStore = require('connect-mongodb-session')(session);
+
+const store = new MongoDBStore({
+  uri: config.DB_URI,
+  collection: 'feedbackerSessions'
+})
+
+store.on('error', (error) => console.log(error))
+
 require("./models/users");
+
+require("./services/passport")
 
 const usersRoutes = require("./routes/users");
 
@@ -14,6 +27,16 @@ mongoose.connect(config.DB_URI, { useNewUrlParser: true })
 const app = express();
 
 app.use(bodyParser.json());
+
+app.use(session({ secret: config.SESSION_SECRET, 
+                  cookie: {maxAge: 3600000},
+                  resave: false,
+                  saveUninitialized: false,
+                  store
+                  }))
+app.use(passport.initialize());
+app.use(passport.session())
+
 
 app.use('/api/v1/users', usersRoutes);
 
