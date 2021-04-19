@@ -1,21 +1,61 @@
 <template>
         <div class="head">
-            <router-link :to="'/'" >
-            <div class="logo-label">
-                <img class="logohead" alt="Design Feedback logo" src="@/assets/logo.svg">
+            <div class="navbar-left">
+                <router-link :to="'/'" >
+                <div class="logo-label">
+                    <img class="logohead" alt="Design Feedback logo" src="@/assets/logo.svg">
+                </div>
+                </router-link>
             </div>
-            </router-link>
-            <div class="login">
-                <p>already have an account?</p>
-                <router-link to="/login">Login</router-link>
+
+            <div v-if="user" class="navbar-right">
+                <div class="dropdown">
+                    <p class="dropbtn">Welcome {{user.firstname}} {{user.surname}} <md-icon>expand_more</md-icon></p>
+                    <div class="dropdown-content">
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        <a href="" @click.prevent="logout">
+                            Logout
+                        </a>
+                    </div>
+                </div>
             </div>
+            
+            <div v-else class="navbar-right">
+                <div v-if="main()">
+                    <p>already have an account?</p>
+                    <router-link to="/login">Login</router-link>
+                </div>
+                <div v-else>
+                    <p>Don't have an account?</p>
+                    <router-link to="/">Register</router-link>
+                </div>
+            </div>
+        
         </div>
 </template>
 
 <script>
-export default {
+  import {mapGetters} from 'vuex'
 
-}
+  export default {
+      name: 'MaterialIcons',
+    computed:{
+      ...mapGetters({
+        'user': 'auth/authUser'
+      }),
+    },
+    methods:{
+        logout () {
+            this.$store.dispatch('auth/logout')
+                .then(() => this.$router.push('/login'))
+        },
+        main() {
+            return this.$route.path === '/'
+        }
+      
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -30,7 +70,7 @@ export default {
     margin-inline: 10vw;
     padding-top: 5vw;
     padding-bottom: 2vw;
-    .login{
+    .navbar-right{
         display: flex;
         flex-direction: row;
         p{
@@ -41,4 +81,45 @@ export default {
         }
     }
 }
+
+
+
+.dropbtn {
+    padding: 15px;
+    border-radius: 10px;
+
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        border-radius: 10px;
+
+        min-width: 100%;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+
+        a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            margin:0px;
+            border-radius: 10px;
+        }
+        a:hover{
+            background-color: #FAFAFA;
+        }
+        
+    }
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #ffffff;}
 </style>

@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const config = require('../config/dev')
 
 const userSchema = new Schema({
+    avatar: String,
     email: { type: String,
         required: 'Email is Required',
         lowercase: true,

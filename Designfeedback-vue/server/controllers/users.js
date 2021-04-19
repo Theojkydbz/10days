@@ -23,8 +23,8 @@ exports.getCurrentUser = function (req, res, next) {
     return res.sendStatus(422);
   }
   // For session auth
-  // return res.json(user);
-  return res.json(user.toAuthJSON());
+  return res.json(user);
+  //return res.json(user.toAuthJSON());
 };
 
 

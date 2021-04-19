@@ -1,4 +1,4 @@
-const passport = require('passport')
+
 
 // Only for session auth
  exports.onlyAuthUser = function (req,res,next){
